@@ -47,7 +47,6 @@ List<LoginData> stubCallback(MockCallback mockCallback) {
 Widget defaultFlutterLogin() {
   return MaterialApp(
     home: FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
     ),

@@ -205,7 +205,6 @@ class __HeaderState extends State<_Header> {
 class FlutterLogin extends StatefulWidget {
   FlutterLogin({
     Key key,
-    @required this.onSignup,
     @required this.onLogin,
     @required this.onRecoverPassword,
     this.title = 'LOGIN',
@@ -221,7 +220,6 @@ class FlutterLogin extends StatefulWidget {
   }) : super(key: key);
 
   /// Called when the user hit the submit button when in sign up mode
-  final AuthCallback onSignup;
 
   /// Called when the user hit the submit button when in login mode
   final AuthCallback onLogin;
@@ -549,7 +547,6 @@ class _FlutterLoginState extends State<FlutterLogin>
         ChangeNotifierProvider(
           create: (context) => Auth(
             onLogin: widget.onLogin,
-            onSignup: widget.onSignup,
             onRecoverPassword: widget.onRecoverPassword,
           ),
         ),

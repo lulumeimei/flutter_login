@@ -171,7 +171,6 @@ void main() {
   testWidgets('Custom emailValidator should show error when return a string',
       (WidgetTester tester) async {
     final loginBuilder = () => widget(FlutterLogin(
-          onSignup: (data) => null,
           onLogin: (data) => null,
           onRecoverPassword: (data) => null,
           emailValidator: (value) => value.endsWith('.com') ? null : 'Invalid!',
@@ -201,7 +200,6 @@ void main() {
   testWidgets('Custom passwordValidator should show error when return a string',
       (WidgetTester tester) async {
     final loginBuilder = () => widget(FlutterLogin(
-          onSignup: (data) => null,
           onLogin: (data) => null,
           onRecoverPassword: (data) => null,
           passwordValidator: (value) => value.length == 5 ? null : 'Invalid!',
@@ -232,7 +230,6 @@ void main() {
       (WidgetTester tester) async {
     const users = ['near@gmail.com', 'hunter69@gmail.com'];
     final loginBuilder = () => widget(FlutterLogin(
-          onSignup: (data) => null,
           onLogin: (data) => null,
           onRecoverPassword: (data) =>
               users.contains(data) ? null : Future.value('User not exists'),
@@ -273,7 +270,6 @@ void main() {
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry';
     const recoverSuccess = 'Password rescued successfully';
     final loginBuilder = () => widget(FlutterLogin(
-          onSignup: (data) => null,
           onLogin: (data) => null,
           onRecoverPassword: (data) => null,
           messages: LoginMessages(
@@ -375,7 +371,6 @@ void main() {
   testWidgets('showDebugButtons = false should not show debug buttons',
       (WidgetTester tester) async {
     var flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       showDebugButtons: true,
@@ -386,7 +381,6 @@ void main() {
     expect(findDebugToolbar(), findsOneWidget);
 
     flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       showDebugButtons: false,
@@ -403,7 +397,6 @@ void main() {
     setScreenSize(Size(786, 1024));
 
     var flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
     ));
@@ -413,7 +406,6 @@ void main() {
     expect(findLogoImage(), findsNothing);
 
     flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       logo: 'assets/images/ecorp.png',
@@ -430,7 +422,6 @@ void main() {
   testWidgets('Leave title parameter empty should not display login title',
       (WidgetTester tester) async {
     var flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       title: '',
@@ -441,7 +432,6 @@ void main() {
     expect(findTitle(), findsNothing);
 
     flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       title: null,
@@ -452,7 +442,6 @@ void main() {
     expect(findTitle(), findsNothing);
 
     flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       title: 'My Login',
@@ -467,7 +456,6 @@ void main() {
       'Login callbacks should be called in order: validating cb > onLogin > onSubmitAnimationCompleted. If one callback fails, the subsequent callbacks will not be invoked',
       (WidgetTester tester) async {
     final loginBuilder = () => widget(FlutterLogin(
-          onSignup: (data) => null,
           onLogin: mockCallback.onLogin,
           onRecoverPassword: (data) => null,
           emailValidator: mockCallback.emailValidator,
@@ -541,7 +529,6 @@ void main() {
       (WidgetTester tester) async {
     final loginBuilder = () => widget(FlutterLogin(
           onLogin: (data) => null,
-          onSignup: mockCallback.onSignup,
           onRecoverPassword: (data) => null,
           emailValidator: mockCallback.emailValidator,
           passwordValidator: mockCallback.passwordValidator,
@@ -674,7 +661,6 @@ void main() {
       'Logo should be hidden if its height is less than kMinLogoHeight. Logo height should be never larger than kMaxLogoHeight',
       (WidgetTester tester) async {
     final flutterLogin = widget(FlutterLogin(
-      onSignup: (data) => null,
       onLogin: (data) => null,
       onRecoverPassword: (data) => null,
       logo: 'assets/images/ecorp.png',

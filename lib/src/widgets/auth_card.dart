@@ -438,17 +438,6 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
     _submitController.dispose();
   }
 
-  void _switchAuthMode() {
-    final auth = Provider.of<Auth>(context, listen: false);
-    final newAuthMode = auth.switchAuth();
-
-    if (newAuthMode == AuthMode.Signup) {
-      _switchAuthController.forward();
-    } else {
-      _switchAuthController.reverse();
-    }
-  }
-
   Future<bool> _submit() async {
     // a hack to force unfocus the soft keyboard. If not, after change-route
     // animation completes, it will trigger rebuilding this widget and show all
@@ -537,7 +526,6 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       double width, LoginMessages messages, Auth auth) {
     return AnimatedPasswordTextFormField(
       animatedWidth: width,
-      enabled: auth.isSignup,
       loadingController: _loadingController,
       inertiaController: _postSwitchAuthController,
       inertiaDirection: TextFieldInertiaDirection.right,
@@ -578,29 +566,8 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       scale: _buttonScaleAnimation,
       child: AnimatedButton(
         controller: _submitController,
-        text: auth.isLogin ? messages.loginButton : messages.signupButton,
+        text: messages.loginButton,
         onPressed: _submit,
-      ),
-    );
-  }
-
-  Widget _buildSwitchAuthButton(
-      ThemeData theme, LoginMessages messages, Auth auth) {
-    return FadeIn(
-      controller: _loadingController,
-      offset: .5,
-      curve: _textButtonLoadingAnimationInterval,
-      fadeDirection: FadeDirection.topToBottom,
-      child: FlatButton(
-        child: AnimatedText(
-          text: auth.isSignup ? messages.loginButton : messages.signupButton,
-          textRotation: AnimatedTextRotation.down,
-        ),
-        disabledTextColor: theme.primaryColor,
-        onPressed: buttonEnabled ? _switchAuthMode : null,
-        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        textColor: theme.primaryColor,
       ),
     );
   }
@@ -659,7 +626,6 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
               children: <Widget>[
                 _buildForgotPassword(theme, messages),
                 _buildSubmitButton(theme, messages, auth),
-                _buildSwitchAuthButton(theme, messages, auth),
               ],
             ),
           ),

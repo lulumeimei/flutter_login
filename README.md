@@ -129,7 +129,6 @@ class LoginScreen extends StatelessWidget {
       title: 'ECORP',
       logo: 'assets/images/ecorp-lightblue.png',
       onLogin: _authUser,
-      onSignup: _authUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => DashboardScreen(),
@@ -193,7 +192,6 @@ class LoginScreen extends StatelessWidget {
       title: 'ECORP',
       logo: 'assets/images/ecorp.png',
       onLogin: (_) => Future(null),
-      onSignup: (_) => Future(null),
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => DashboardScreen(),
@@ -221,7 +219,6 @@ class LoginScreen extends StatelessWidget {
       title: 'ECORP',
       logo: 'assets/images/ecorp.png',
       onLogin: (_) => Future(null),
-      onSignup: (_) => Future(null),
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => DashboardScreen(),
@@ -233,7 +230,6 @@ class LoginScreen extends StatelessWidget {
         passwordHint: 'Pass',
         confirmPasswordHint: 'Confirm',
         loginButton: 'LOG IN',
-        signupButton: 'REGISTER',
         forgotPasswordButton: 'Forgot huh?',
         recoverPasswordButton: 'HELP ME',
         goBackButton: 'GO BACK',
@@ -271,7 +267,6 @@ class LoginScreen extends StatelessWidget {
       title: 'ECORP',
       logo: 'assets/images/ecorp-lightgreen.png',
       onLogin: (_) => Future(null),
-      onSignup: (_) => Future(null),
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => DashboardScreen(),

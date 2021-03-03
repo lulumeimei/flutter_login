@@ -49,7 +49,6 @@ class LoginScreen extends StatelessWidget {
       //   passwordHint: 'Pass',
       //   confirmPasswordHint: 'Confirm',
       //   loginButton: 'LOG IN',
-      //   signupButton: 'REGISTER',
       //   forgotPasswordButton: 'Forgot huh?',
       //   recoverPasswordButton: 'HELP ME',
       //   goBackButton: 'GO BACK',

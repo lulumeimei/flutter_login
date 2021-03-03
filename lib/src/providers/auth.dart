@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/login_data.dart';
 
-enum AuthMode { Signup, Login }
+enum AuthMode { Login }
 
 /// The result is an error message, callback successes if message is null
 typedef AuthCallback = Future<String> Function(LoginData);
@@ -32,20 +32,10 @@ class Auth with ChangeNotifier {
   }
 
   bool get isLogin => _mode == AuthMode.Login;
-  bool get isSignup => _mode == AuthMode.Signup;
   bool isRecover = false;
 
   AuthMode opposite() {
-    return _mode == AuthMode.Login ? AuthMode.Signup : AuthMode.Login;
-  }
-
-  AuthMode switchAuth() {
-    if (mode == AuthMode.Login) {
-      mode = AuthMode.Signup;
-    } else if (mode == AuthMode.Signup) {
-      mode = AuthMode.Login;
-    }
-    return mode;
+    return _mode = AuthMode.Login;
   }
 
   String _email = '';
